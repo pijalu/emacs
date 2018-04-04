@@ -1,0 +1,1 @@
+(define-package "inf-mongo" "20160815.216" "Run a MongoDB shell process in a buffer" 'nil :commit "649dc6ea8e468f1d8109568548eb222c71486dbf" :url "http://github.com/endofunky/inf-mongo" :keywords '("databases" "mongodb"))
