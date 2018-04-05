@@ -322,7 +322,11 @@
 (add-hook 'completion-at-point-functions 'go-complete-at-point)
 
 (with-eval-after-load 'go-mode
-   (require 'go-autocomplete))
+	(require 'go-autocomplete))
+
+(require 'flycheck)
+(add-hook 'go-mode-hook 'flycheck-mode)
+
 
 ;; js2
 (require 'js2-mode)
@@ -389,8 +393,7 @@ in current buffer."
 (lambda ()
 (add-to-list 'ac-sources 'ac-source-rsense-method)
 (add-to-list 'ac-sources 'ac-source-rsense-constant)))
-
-
+ 
 (require 'exec-path-from-shell)
 (setq exec-path-from-shell-check-startup-files nil)
 (when (memq window-system '(mac ns))
