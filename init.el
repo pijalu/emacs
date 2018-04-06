@@ -156,7 +156,7 @@
 ;; some color theme-setting
 ;;(load "~/elisp/color-theme-start.el")
 
-(iswitchb-mode t)
+;;(iswitchb-mode t)
 
 (setq display-time-day-and-date t
       display-time-24hr-format t)
