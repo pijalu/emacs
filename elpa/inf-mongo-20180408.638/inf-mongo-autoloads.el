@@ -1,13 +1,10 @@
 ;;; inf-mongo-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads (inf-mongo-mode switch-to-inf-mongo mongo-send-buffer-and-go
-;;;;;;  mongo-send-buffer mongo-send-last-sexp mongo-send-last-sexp-and-go
-;;;;;;  mongo-send-region-and-go mongo-send-region inf-mongo inf-mongo-mode-hook
-;;;;;;  inf-mongo-command inf-mongo) "inf-mongo" "inf-mongo.el" (21331
-;;;;;;  32220 0 0))
+;;;### (autoloads nil "inf-mongo" "inf-mongo.el" (23243 45820 831325
+;;;;;;  632000))
 ;;; Generated autoloads from inf-mongo.el
 
 (let ((loads (get 'inf-mongo 'custom-loads))) (if (member '"inf-mongo" loads) nil (put 'inf-mongo 'custom-loads (cons '"inf-mongo" loads))))
@@ -80,16 +77,9 @@ With argument, position cursor at end of buffer.
 
 ;;;***
 
-;;;### (autoloads nil nil ("inf-mongo-pkg.el") (21331 32220 282337
-;;;;;;  0))
-
-;;;***
-
-(provide 'inf-mongo-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; inf-mongo-autoloads.el ends here

@@ -1,10 +1,10 @@
 ;;; rsense.el --- RSense client for Emacs
-;; Version: 20100510.2105
 
 ;; Copyright (C) 2010  Tomohiro Matsuyama
 
 ;; Author: Tomohiro Matsuyama <tomo@cx4a.org>
 ;; Keywords: convenience
+;; Package-Version: 20100510.2105
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

@@ -1,9 +1,9 @@
 ;;; rsense-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("rsense.el") (21709 18932 234239 0))
+;;;### (autoloads nil nil ("rsense.el") (23243 46491 533502 142000))
 
 ;;;***
 
