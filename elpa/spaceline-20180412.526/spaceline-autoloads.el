@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "spaceline-config" "spaceline-config.el" (23233
-;;;;;;  181 452005 16000))
+;;;### (autoloads nil "spaceline-config" "spaceline-config.el" (23247
+;;;;;;  32592 588240 903000))
 ;;; Generated autoloads from spaceline-config.el
 
 (autoload 'spaceline-spacemacs-theme "spaceline-config" "\
@@ -58,7 +58,7 @@ This minor mode requires info+.
 ;;;***
 
 ;;;### (autoloads nil nil ("spaceline-pkg.el" "spaceline-segments.el"
-;;;;;;  "spaceline.el") (23233 181 453787 405000))
+;;;;;;  "spaceline.el") (23247 32592 589990 798000))
 
 ;;;***
 

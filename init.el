@@ -377,15 +377,15 @@ in current buffer."
 ;;(require 'spaceline-config)
 ;;(spaceline-spacemacs-theme)
 
-(defun new-frame-setup (&optional frame)
-  (if (display-graphic-p)
-			(load "~/.emacs.d/my.elisp/emacs-powerline.el")
-	)
-)
-;; Run now
-(new-frame-setup)
-;; run when a new frame is created using server
-(add-hook 'after-make-frame-functions 'new-frame-setup)
+;; (defun new-frame-setup (&optional frame)
+;;   (if (display-graphic-p)
+(load "~/.emacs.d/my.elisp/emacs-powerline.el")
+;; 	)
+;; )
+;; ;; Run now
+;; (new-frame-setup)
+;; ;; run when a new frame is created using server
+;; (add-hook 'after-make-frame-functions 'new-frame-setup)
 
 
 (setq default-directory "~")
