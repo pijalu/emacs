@@ -417,3 +417,6 @@ in current buffer."
 
 (require 'spaceline-config)
 (spaceline-spacemacs-theme)
+
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C-=") 'text-scale-decrease)
