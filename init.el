@@ -177,27 +177,6 @@
 ;;        (list
 ;;        (cons 'font my-font)))))
 
-;; ido makes competing buffers and finding files easier
-;; http://www.emacswiki.org/cgi-bin/wiki/InteractivelyDoThings
-(require 'ido) 
-(ido-mode 'both) ;; for buffers and files
-(setq 
-  ido-everywhere t
-  ido-save-directory-list-file "~/.emacs.d/cache/ido.last"
-
-  ido-enable-last-directory-history t ; remember last used dirs
-  ido-max-work-directory-list 30   ; should be enough
-  ido-max-work-file-list      50   ; remember many
-  ido-use-filename-at-point nil    ; don't use filename at point (annoying)
-  ido-use-url-at-point nil         ; don't use url at point (annoying)
-  ido-enable-flex-matching t       ; try to be too smart
-  ido-max-prospects 8              ; don't spam my minibuffer
-  ido-create-new-buffer 'always
-  ido-file-extensions-order '(".c" ".h" t)
-  ido-ignore-extensions '(".o" ".H")
-  ido-enable-tramp-completion nil ; no tramp
-)
-
 
 ;; when using ido, the confirmation is rather annoying...
 (setq confirm-nonexistent-file-or-buffer nil)
@@ -219,7 +198,7 @@
  '(column-number-mode t)
  '(package-selected-packages
 	 (quote
-		(flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib angular-snippets ac-js2 ac-inf-ruby)))
+		(ac-helm f3 helm helm-company helm-ext helm-flycheck helm-flyspell helm-git helm-go-package helm-grepint helm-helm-commands flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib angular-snippets ac-js2 ac-inf-ruby)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
@@ -379,7 +358,7 @@ in current buffer."
 
 ;; (defun new-frame-setup (&optional frame)
 ;;   (if (display-graphic-p)
-(load "~/.emacs.d/my.elisp/emacs-powerline.el")
+;;(load "~/.emacs.d/my.elisp/emacs-powerline.el")
 ;; 	)
 ;; )
 ;; ;; Run now
@@ -387,6 +366,69 @@ in current buffer."
 ;; ;; run when a new frame is created using server
 ;; (add-hook 'after-make-frame-functions 'new-frame-setup)
 
+;; (require 'helm-config)
+;; (helm-mode 1)
+;; (define-key global-map [remap find-file] 'helm-find-files)
+;; (define-key global-map [remap occur] 'helm-occur)
+;; (define-key global-map [remap list-buffers] 'helm-buffers-list)
+;; (define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
+;; (define-key global-map [remap execute-extended-command] 'helm-M-x)
+;; (unless (boundp 'completion-in-region-function)
+;;   (define-key lisp-interaction-mode-map [remap completion-at-point] 'helm-lisp-completion-at-point)
+;;   (define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
+
+;;(require 'linum-relative)
+;;(helm-linum-relative-mode 1)
+
+(require 'helm)
+(require 'helm-config)
+
+(define-key global-map [remap find-file] 'helm-find-files)
+(define-key global-map [remap occur] 'helm-occur)
+(define-key global-map [remap list-buffers] 'helm-buffers-list)
+(define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
+(define-key global-map [remap execute-extended-command] 'helm-M-x)
+
+(unless (boundp 'completion-in-region-function)
+	(define-key lisp-interaction-mode-map [remap completion-at-point] 'helm-lisp-completion-at-point)
+	(define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
+
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
+
+(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-ff-file-name-history-use-recentf t
+      helm-echo-input-in-header-line t)
+
+(defun spacemacs//helm-hide-minibuffer-maybe ()
+  "Hide minibuffer in Helm session if we use the header line as input field."
+  (when (with-helm-buffer helm-echo-input-in-header-line)
+    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+      (overlay-put ov 'window (selected-window))
+      (overlay-put ov 'face
+                   (let ((bg-color (face-background 'default nil)))
+                     `(:background ,bg-color :foreground ,bg-color)))
+      (setq-local cursor-type nil))))
+
+
+(add-hook 'helm-minibuffer-set-up-hook
+          'spacemacs//helm-hide-minibuffer-maybe)
+
+(setq helm-autoresize-max-height 0)
+(setq helm-autoresize-min-height 20)
+(helm-autoresize-mode 1)
+(helm-mode 1)
+
+(require 'linum-relative)
+(helm-linum-relative-mode 1)
+
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+
+(require 'spacemacs-dark-theme)
 
 (setq default-directory "~")
 
