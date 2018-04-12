@@ -202,9 +202,19 @@
 ;; when using ido, the confirmation is rather annoying...
 (setq confirm-nonexistent-file-or-buffer nil)
 
-;; load theme 
-(if (>= emacs-major-version 24)
-    (load-file "~/.emacs.d/my.elisp/emacs24.el"))
+(require 'package)
+;; Add ELPA path...
+(let ((default-directory "~/.emacs.d/elpa/"))
+      (normal-top-level-add-to-load-path '("."))
+      (normal-top-level-add-subdirs-to-load-path))
+;; don't antialias plz...
+;;(setq mac-allow-anti-aliasing nil)
+
+
+;; load theme
+(require 'spacemacs-dark-theme)
+;;(if (>= emacs-major-version 24)
+;;    (load-file "~/.emacs.d/my.elisp/emacs24.el"))
 
 ;;(set-default-font "-apple-Inconsolata-medium-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 
@@ -217,6 +227,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
+ '(custom-safe-themes
+	 (quote
+		("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(package-selected-packages
 	 (quote
 		(flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib angular-snippets ac-js2 ac-inf-ruby)))
@@ -240,10 +253,7 @@
   (menu-bar-mode 0))
 
 
-
-
-;; Emacs 24 stuff
-(require 'package)
+;; Emacs package stuffs
 ;; Add the original Emacs Lisp Package Archive
 (add-to-list 'package-archives
              '("elpa" . "http://tromey.com/elpa/"))
@@ -253,13 +263,6 @@
 
 (add-to-list 'package-archives
               '("melpa" . "http://melpa.org/packages/"))
-
-;; Add ELPA path...
-(let ((default-directory "~/.emacs.d/elpa/"))
-      (normal-top-level-add-to-load-path '("."))
-      (normal-top-level-add-subdirs-to-load-path))
-;; don't antialias plz...
-;;(setq mac-allow-anti-aliasing nil)
 
 ;;(describe-variable 'package-activated-list)
 (setq package-list
@@ -413,5 +416,4 @@ in current buffer."
 ;;  '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
 
 (require 'spaceline-config)
-(require 'spacemacs-dark-theme)
 (spaceline-spacemacs-theme)
