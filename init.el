@@ -416,7 +416,10 @@ in current buffer."
 ;;  '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
 
 (require 'spaceline-config)
-(spaceline-spacemacs-theme)
+(if (display-graphic-p) 
+  	(spaceline-spacemacs-theme)		
+	(powerline-default-theme)
+)
 
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
