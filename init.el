@@ -302,6 +302,7 @@
 ;; go
 ;;(load-file "~/golang/src/golang.org/x/tools/cmd/oracle/oracle.el")
 
+
 ;;Go autocomplete
 (defun my-go-mode-hook ()
 					; Use goimports instead of go-fmt
@@ -314,7 +315,9 @@
 	   "go build -v && go test -v && go vet"))
 					; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump)
-  (local-set-key (kbd "C-?") 'godoc-at-point))
+  (local-set-key (kbd "C-?") 'godoc-at-point)
+	(local-set-key (kbd "C-x .") 'godef-jump-other-window)
+)
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
 (require 'go-eldoc) ;; Don't need to require, if you install by package.el
