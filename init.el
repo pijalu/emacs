@@ -107,8 +107,13 @@
 
 ;; Save last position
 (setq save-place-file "~/.emacs.d/saveplace") ;; keep my ~/ clean
-(setq-default save-place t)                   ;; activate it for all buffers
+
+
 (require 'saveplace)                          ;; get the package
+(if (>= emacs-major-version 25)
+		(save-place-mode 1)
+	(setq-default save-place t)
+)
 
 ;; uniquify
 (require 'uniquify) 
