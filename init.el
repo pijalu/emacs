@@ -237,7 +237,7 @@
 		("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(package-selected-packages
 	 (quote
-		(flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib angular-snippets ac-js2 ac-inf-ruby)))
+		(fish-completion fish-mode dockerfile-mode flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib angular-snippets ac-js2 ac-inf-ruby)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
@@ -321,7 +321,7 @@
 					; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump)
   (local-set-key (kbd "C-?") 'godoc-at-point)
-	(local-set-key (kbd "C-x .") 'godef-jump-other-window)
+	(local-set-key (kbd "C-.") 'godef-jump-other-window)
 )
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
@@ -424,6 +424,7 @@ in current buffer."
 ;;  '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
 
 (require 'spaceline-config)
+(setq powerline-default-separator 'wave)
 (if (display-graphic-p) 
   	(spaceline-spacemacs-theme)		
 	(powerline-default-theme)
@@ -434,3 +435,9 @@ in current buffer."
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
