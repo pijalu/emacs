@@ -431,6 +431,8 @@ in current buffer."
 )
 
 (global-hl-line-mode 1)
+(global-prettify-symbols-mode +1)
+(setq prettify-symbols-unprettify-at-point t)
 
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
