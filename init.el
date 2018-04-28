@@ -237,7 +237,7 @@
 		("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(package-selected-packages
 	 (quote
-		(fish-completion fish-mode dockerfile-mode flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib angular-snippets ac-js2 ac-inf-ruby)))
+		(gotest fish-completion fish-mode dockerfile-mode flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib angular-snippets ac-js2 ac-inf-ruby)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
@@ -322,8 +322,18 @@
   (local-set-key (kbd "M-.") 'godef-jump)
   (local-set-key (kbd "C-?") 'godoc-at-point)
 	(local-set-key (kbd "C-.") 'godef-jump-other-window)
+
+	(define-key go-mode-map (kbd "C-c f") 'go-test-current-file)
+	(define-key go-mode-map (kbd "C-c t") 'go-test-current-test)
+	(define-key go-mode-map (kbd "C-c p") 'go-test-current-project)
+	(define-key go-mode-map (kbd "C-c b") 'go-test-current-benchmark)
+	(define-key go-mode-map (kbd "C-c x") 'go-run)
 )
 (add-hook 'go-mode-hook 'my-go-mode-hook)
+
+;;go  testing
+;;(require 'go-test)
+
 
 (require 'go-eldoc) ;; Don't need to require, if you install by package.el
 (add-hook 'go-mode-hook 'go-eldoc-setup)
