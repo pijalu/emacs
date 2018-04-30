@@ -1,10 +1,10 @@
 ;;; flycheck-gometalinter-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "flycheck-gometalinter" "flycheck-gometalinter.el"
-;;;;;;  (22822 43128 0 0))
+;;;;;;  (23271 31805 931111 202000))
 ;;; Generated autoloads from flycheck-gometalinter.el
 
 (autoload 'flycheck-gometalinter-setup "flycheck-gometalinter" "\
