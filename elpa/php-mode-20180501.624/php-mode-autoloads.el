@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "php-mode" "php-mode.el" (23262 13827 774805
-;;;;;;  316000))
+;;;### (autoloads nil "php-mode" "php-mode.el" (23274 5622 240922
+;;;;;;  544000))
 ;;; Generated autoloads from php-mode.el
 
 (let ((loads (get 'php 'custom-loads))) (if (member '"php-mode" loads) nil (put 'php 'custom-loads (cons '"php-mode" loads))))
@@ -41,8 +41,8 @@ Insert current namespace if cursor in namespace context.
 
 ;;;***
 
-;;;### (autoloads nil "php-project" "php-project.el" (23262 13827
-;;;;;;  764601 621000))
+;;;### (autoloads nil "php-project" "php-project.el" (23274 5622
+;;;;;;  231045 39000))
 ;;; Generated autoloads from php-project.el
 
 (defvar php-project-root 'auto "\
@@ -113,7 +113,7 @@ Return path to current PHP project.
 ;;;;;;  "php-exif.el" "php-ext.el" "php-filesystem.el" "php-gd.el"
 ;;;;;;  "php-math.el" "php-mode-pkg.el" "php-pcre.el" "php-regex.el"
 ;;;;;;  "php-simplexml.el" "php-strings.el" "php-var.el" "php-xmlparser.el"
-;;;;;;  "php-xmlreader.el") (23262 13827 789808 288000))
+;;;;;;  "php-xmlreader.el") (23274 5622 256086 503000))
 
 ;;;***
 
