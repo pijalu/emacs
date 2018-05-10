@@ -289,7 +289,7 @@
 ;;(require 'yasnippet-bundle)
 ;;(yas/load-directory "~/.emacs.d/elpa/angular-snippets-20140513.2223/snippets/")
 (add-to-list 'load-path
-						 " ~/.emacs.d/elpa/yasnippet-20170518.1753/snippets")
+						 " ~/.emacs.d/yasnippets")
 (require 'yasnippet)
 (yas-global-mode 1)
 
