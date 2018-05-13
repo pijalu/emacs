@@ -1,4 +1,4 @@
-(define-package "sbt-mode" "20180314.1511" "Interactive support for sbt projects"
+(define-package "sbt-mode" "20180511.922" "Interactive support for sbt projects"
   '((emacs "24.4"))
   :keywords
   '("languages")
