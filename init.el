@@ -237,7 +237,7 @@
 		("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(package-selected-packages
 	 (quote
-		(govet gotest fish-completion fish-mode dockerfile-mode flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib angular-snippets ac-js2 ac-inf-ruby)))
+		(govet gotest fish-completion fish-mode dockerfile-mode flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib ac-js2 ac-inf-ruby)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
@@ -271,7 +271,7 @@
 
 ;;(describe-variable 'package-activated-list)
 (setq package-list
-      '(flycheck seq let-alist pkg-info epl dash flycheck ac-inf-ruby auto-complete popup inf-ruby ac-js2 skewer-mode js2-mode simple-httpd js2-mode angular-snippets dash s es-lib es-windows exec-path-from-shell flycheck-gometalinter flycheck seq let-alist pkg-info epl dash flymake flymake-css flymake-easy flymake-go flymake-google-cpplint flymake-easy flymake-jslint flymake-easy flymake-json flymake-easy flymake-ruby flymake-easy flymake-shell flymake-easy geben go-autocomplete auto-complete popup go-complete go-mode go-direx direx go-dlv go-mode go-eldoc go-mode go-errcheck go-gopath go-guru go-mode go-rename go-mode go-scratch go-mode go-snippets yasnippet grunt dash inf-mongo inf-ruby js2-refactor yasnippet s dash multiple-cursors s js2-mode json-mode json-snatcher json-reformat json-reformat json-snatcher let-alist log4j-mode multiple-cursors nodejs-repl php-extras php-mode php-mode pkg-info epl popup protobuf-mode sbt-mode scala-mode2 seq skewer-mode js2-mode simple-httpd vlf yasnippet))
+      '(flycheck seq let-alist pkg-info epl dash flycheck ac-inf-ruby auto-complete popup inf-ruby ac-js2 skewer-mode js2-mode simple-httpd js2-mode dash s es-lib es-windows exec-path-from-shell flycheck-gometalinter flycheck seq let-alist pkg-info epl dash flymake flymake-css flymake-easy flymake-go flymake-google-cpplint flymake-easy flymake-jslint flymake-easy flymake-json flymake-easy flymake-ruby flymake-easy flymake-shell flymake-easy geben go-autocomplete auto-complete popup go-complete go-mode go-direx direx go-dlv go-mode go-eldoc go-mode go-errcheck go-gopath go-guru go-mode go-rename go-mode go-scratch go-mode go-snippets yasnippet grunt dash inf-mongo inf-ruby js2-refactor yasnippet s dash multiple-cursors s js2-mode json-mode json-snatcher json-reformat json-reformat json-snatcher let-alist log4j-mode multiple-cursors nodejs-repl php-extras php-mode php-mode pkg-info epl popup protobuf-mode sbt-mode scala-mode2 seq skewer-mode js2-mode simple-httpd vlf yasnippet))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 ; fetch the list of packages available
@@ -281,9 +281,6 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
         (package-install package)))
-
-;; angular
-(require 'angular-snippets-autoloads)
 
 ;; yas
 ;;(require 'yasnippet-bundle)
