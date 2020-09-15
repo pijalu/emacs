@@ -218,6 +218,8 @@
 
 ;; load theme
 (require 'spacemacs-dark-theme)
+(enable-theme 'spacemacs-dark)
+;(load-theme 'spacemacs-dark)
 ;;(if (>= emacs-major-version 24)
 ;;    (load-file "~/.emacs.d/my.elisp/emacs24.el"))
 
@@ -233,11 +235,9 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-safe-themes
-	 (quote
-		("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+	 '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
  '(package-selected-packages
-	 (quote
-		(govet gotest fish-completion fish-mode dockerfile-mode flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib ac-js2 ac-inf-ruby)))
+	 '(color-theme-zenburn govet gotest fish-completion fish-mode dockerfile-mode flycheck-yamllint yaml-mode markdown-preview-mode markdown-mode tide typescript-mode vlf spacemacs-theme spaceline-all-the-icons scala-mode2 sbt-mode protobuf-mode php-extras nodejs-repl log4j-mode json-mode js2-refactor inf-mongo grunt go-snippets go-scratch go-rename go-guru go-gopath go-errcheck go-eldoc go-dlv go-direx go-complete go-autocomplete geben flymake-shell flymake-ruby flymake-json flymake-jslint flymake-google-cpplint flymake-go flymake-css flymake flycheck-gometalinter exec-path-from-shell es-windows es-lib ac-js2 ac-inf-ruby))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
